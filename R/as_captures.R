@@ -3,8 +3,8 @@
 #' Use blank names for any expressions that you want to match, but not to
 #' capture.
 #'
-#' @param .regexes <chr> a vector of capturing expressions
-#' @param .labels <chr>, optional, names for each capturing expression.
+#' @param .regexes &lt;chr&gt; a vector of capturing expressions
+#' @param .labels &lt;chr&gt; optional, names for each capturing expression.
 #'
 #' @return a vector of expressions, some of which may be named capture groups.
 #' @export

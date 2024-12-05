@@ -14,8 +14,8 @@ PANORAMA_FILE_PATTERNS <- c(
 
 #' Parse Panorama file names into their component fields.
 #'
-#' @param .filenames <chr> full paths or basenames to Panorama files.
-#' @param .tz <dbl> optional, the timezone the files were downloaded in.
+#' @param .filenames &lt;chr&gt; full paths or basenames to Panorama files.
+#' @param .tz &lt;db&gt; optional, the timezone the files were downloaded in.
 #'
 #' @return a tibble with six columns: File, School, Population, Report, Period, and Datetime
 #' @export

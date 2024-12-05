@@ -7,9 +7,9 @@
 filenames_to_tibble(.filenames, .tz = Sys.timezone())
 }
 \arguments{
-\item{.filenames}{\if{html}{\out{<chr>}} full paths or basenames to Panorama files.}
+\item{.filenames}{<chr> full paths or basenames to Panorama files.}
 
-\item{.tz}{\if{html}{\out{<dbl>}} optional, the timezone the files were downloaded in.}
+\item{.tz}{<db> optional, the timezone the files were downloaded in.}
 }
 \value{
 a tibble with six columns: File, School, Population, Report, Period, and Datetime

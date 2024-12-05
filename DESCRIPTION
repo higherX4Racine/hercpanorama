@@ -25,3 +25,4 @@ Imports:
     tibble
 Depends: 
     R (>= 3.5)
+URL: https://higherx4racine.github.io/hercpanorama/

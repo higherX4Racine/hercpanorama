@@ -8,6 +8,13 @@
 \description{
 What the package does (one paragraph).
 }
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://higherx4racine.github.io/hercpanorama/}
+}
+
+}
 \author{
 \strong{Maintainer}: Ben Taft \email{ben.taft@career2cradle.org}
 

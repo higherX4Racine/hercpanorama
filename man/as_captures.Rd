@@ -7,9 +7,9 @@
 as_captures(.regexes, .labels = NULL)
 }
 \arguments{
-\item{.regexes}{\if{html}{\out{<chr>}} a vector of capturing expressions}
+\item{.regexes}{<chr> a vector of capturing expressions}
 
-\item{.labels}{\if{html}{\out{<chr>}}, optional, names for each capturing expression.}
+\item{.labels}{<chr> optional, names for each capturing expression.}
 }
 \value{
 a vector of expressions, some of which may be named capture groups.
