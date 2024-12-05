@@ -20,9 +20,11 @@ Imports:
     dplyr,
     lubridate,
     purrr,
+    readr,
     rlang,
     stringr,
-    tibble
+    tibble,
+    tidyselect
 Depends: 
     R (>= 3.5)
 URL: https://higherx4racine.github.io/hercpanorama/
