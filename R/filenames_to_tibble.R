@@ -1,17 +1,3 @@
-PANORAMA_FILE_PATTERNS <- c(
-    ".*(?<=/|^)",
-    School = "[^_]+",
-    "_",
-    Population = "[^_]+",
-    "_",
-    Report = "[^_]+",
-    "_",
-    Period = "[^_]+",
-    "_",
-    Datetime = "\\d+",
-    "\\.csv$"
-)
-
 #' Parse Panorama file names into their component fields.
 #'
 #' @param .filenames &lt;chr&gt; full paths or basenames to Panorama files.
@@ -25,7 +11,7 @@ PANORAMA_FILE_PATTERNS <- c(
 filenames_to_tibble <- function(.filenames, .tz = Sys.timezone()) {
     .matches <- .filenames |>
         stringr::str_match(
-            pattern = PANORAMA_FILE_PATTERNS |>
+            pattern = hercpanorama::FILE_PATTERNS |>
                 purrr::imap_chr(as_captures) |>
                 paste0(collapse = "")
         )

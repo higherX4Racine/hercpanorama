@@ -19,21 +19,7 @@
 #' @export
 import_raw_report <- function(.filename) {
     readr::read_csv(.filename,
-                    col_types = c(PANORAMA_DEMOGRAPHIC_FIELDS,
+                    col_types = c(hercpanorama::DEMOGRAPHIC_FIELDS,
                                   list(.default = "c")),
                     skip = 1)
 }
-
-PANORAMA_DEMOGRAPHIC_FIELDS <- list(
-    `Student Student Number` = "i",
-    `Student First Name` = "c",
-    `Student Last Name` = "c",
-    Gender = "c",
-    `504 Status` = "c",
-    `ELL Status` = "c",
-    `Grade Level` = "c",
-    `Date of Birth` = readr::col_date(format = ""),
-    `Race Ethnicity` = "c",
-    `Special ED Status` = "c"
-)
-

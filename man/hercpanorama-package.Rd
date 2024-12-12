@@ -4,9 +4,9 @@
 \name{hercpanorama-package}
 \alias{hercpanorama}
 \alias{hercpanorama-package}
-\title{hercpanorama: What the Package Does (One Line, Title Case)}
+\title{hercpanorama: Wrangle data from the Panorama Student Information System}
 \description{
-What the package does (one paragraph).
+Student-level data from Panoram is export as wide-formatted csv files. Each file has common identifying and demographic data, then many, possibly unique, columns corresponding to scores on assessments or responses to surveys. The names of these columns include information about the type of data collected as well as when the data were collected. There are also usually two columns for every assessment, a raw score and a grade.
 }
 \seealso{
 Useful links:

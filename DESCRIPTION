@@ -1,11 +1,17 @@
 Package: hercpanorama
-Title: What the Package Does (One Line, Title Case)
+Title: Wrangle data from the Panorama Student Information System
 Version: 0.0.0.9000
 Authors@R: c(
     person("Ben", "Taft", , "ben.taft@career2cradle.org", role = c("aut", "cre")),
     person("Higher Expectations for Racine County", role = "cph")
   )
-Description: What the package does (one paragraph).
+Description:
+    Student-level data from Panoram is export as wide-formatted csv files. Each
+    file has common identifying and demographic data, then many, possibly
+    unique, columns corresponding to scores on assessments or responses to
+    surveys. The names of these columns include information about the type of
+    data collected as well as when the data were collected. There are also
+    usually two columns for every assessment, a raw score and a grade.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
@@ -24,7 +30,9 @@ Imports:
     rlang,
     stringr,
     tibble,
+    tidyr,
     tidyselect
 Depends: 
     R (>= 3.5)
 URL: https://higherx4racine.github.io/hercpanorama/
+LazyData: true
