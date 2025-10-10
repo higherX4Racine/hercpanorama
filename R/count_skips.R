@@ -8,6 +8,9 @@
 #' @returns `<int>` the number of lines searched before the pattern is found
 #' @export
 count_skips <- function(.connection, .header_pattern) {
+    if (is.character(.connection)) {
+        .connection <- withr::local_connection(file(.connection, "rt"))
+    }
     .skips <- 0
     .line <- readLines(.connection, 1)
     while (length(.line)) {
