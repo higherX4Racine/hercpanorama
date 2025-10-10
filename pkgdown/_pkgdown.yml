@@ -2,3 +2,4 @@ url: https://higherx4racine.github.io/hercpanorama/
 template:
   bootstrap: 5
 
+destination: pkgdown/docs/

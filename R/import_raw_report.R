@@ -18,8 +18,12 @@
 #' @return a tibble of student-level data.
 #' @export
 import_raw_report <- function(.filename) {
+    .skips <- .filename |>
+        file("rt") |>
+        withr::local_connection() |>
+        count_skips(names(hercpanorama::DEMOGRAPHIC_FIELDS)[1])
     readr::read_csv(.filename,
                     col_types = c(hercpanorama::DEMOGRAPHIC_FIELDS,
                                   list(.default = "c")),
-                    skip = 1)
+                    skip = .skips)
 }

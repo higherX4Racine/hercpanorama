@@ -11,6 +11,12 @@ wrangle_panorama_fields <- function(.panorama_data, .patterns) {
         purrr::imap_chr(as_captures) |>
         paste0(collapse = "")
 
+    if (.panorama_data |>
+        dplyr::select(tidyselect::matches(.whole_pattern)) |>
+        ncol() == 0) {
+        return(tibble::tibble())
+    }
+
     .panorama_data |>
         dplyr::select(
             tidyselect::any_of(c("School", "Student Student Number")),
@@ -18,18 +24,23 @@ wrangle_panorama_fields <- function(.panorama_data, .patterns) {
         ) |>
         tidyr::pivot_longer(
             cols = tidyselect::matches(.whole_pattern),
-            names_to = "Split Me",
+            names_to = "SPLIT_ME",
             values_to = "Observation"
         ) |>
         dplyr::filter(
             !is.na(.data$Observation)
         ) |>
         tidyr::separate_wider_regex(
-            cols = "Split Me",
-            patterns = .patterns
+            cols = "SPLIT_ME",
+            patterns = .patterns,
+            too_few = "align_start"
         ) |>
         tidyr::pivot_wider(
             names_from = "Field",
-            values_from = "Observation"
+            values_from = "Observation",
+            values_fn = list
+        ) |>
+        tidyr::unnest(
+            cols = c("Status", "Value")
         )
 }
