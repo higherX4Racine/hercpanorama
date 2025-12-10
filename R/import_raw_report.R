@@ -1,27 +1,32 @@
+## Copyright (C) 2025 by Higher Expectations for Racine County
 
 #' Extract text from a csv-formatted student-level file output from Panorama
 #'
 #' The table will have at least 10 columns of demographic and identifying data:
-#' * `Student Student Number` &lt;int&gt;
-#' * `Student First Name` &lt;chr&gt;
-#' * `Student Last Name` &lt;chr&gt;
-#' * `Gender` &lt;chr&gt;
-#' * `504 Status` &lt;chr&gt;
-#' * `ELL Status` &lt;chr&gt;
-#' * `Grade Level` &lt;chr&gt;
-#' * `Date of Birth` &lt;date&gt;
-#' * `Race Ethnicity` &lt;chr&gt;
-#' * `Special ED Status` &lt;chr&gt;
 #'
-#' @param .filename &lt;chr&gt; the full path to the file
+#' @param .filename `<chr>` the full path to the file
 #'
-#' @return a tibble of student-level data.
+#' @return an object of class `tbl_df`, `tbl`, `data.frame`
+#' with at least 10 columns
+#' \describe{
+#'   \item{`Student Student Number`}{ `<int>` the student's unique ID}
+#'   \item{`Student First Name`}{ `<chr>` the student's given name}
+#'   \item{`Student Last Name`}{ `<chr>` the student's family name}
+#'   \item{`Gender`}{ `<chr>` female or male}
+#'   \item{`504 Status`}{ `<chr>` whether or not the student has a personal learning plan}
+#'   \item{`ELL Status`}{ `<chr>` whether or not the student is learning English as an additional language}
+#'   \item{`Grade Level`}{ `<chr>` what grade the student is in.}
+#'   \item{`Date of Birth`}{ `<date>` students' birthdays don't seem to appear in later data sets}
+#'   \item{`Race Ethnicity`}{ `<chr>` one of the OMB '97 race/ethnicites}
+#'   \item{`Special ED Status`}{ `<chr>` whethe or not the student participates in special education services}
+#' }
 #' @export
 import_raw_report <- function(.filename) {
     .skips <- .filename |>
         file("rt") |>
         withr::local_connection() |>
-        count_skips(names(hercpanorama::DEMOGRAPHIC_FIELDS)[1])
+        count_skips(paste0(names(hercpanorama::DEMOGRAPHIC_FIELDS),
+                           collapse = "|"))
     readr::read_csv(.filename,
                     col_types = c(hercpanorama::DEMOGRAPHIC_FIELDS,
                                   list(.default = "c")),

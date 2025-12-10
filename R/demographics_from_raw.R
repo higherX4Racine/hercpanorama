@@ -18,15 +18,19 @@
 #' }
 #' @export
 demographics_from_raw <- function(.raw_data) {
-    .raw_data |>
+    .tmp <- .raw_data |>
         dplyr::select(
             tidyselect::all_of(c("School", "Demographics"))
         ) |>
         tidyr::unnest(
             "Demographics"
         ) |>
-        dplyr::distinct() |>
-        dplyr::mutate(
-            `Date of Birth` = lubridate::mdy(.data$`Date of Birth`)
-        )
+        dplyr::distinct()
+    if ("Date of Birth" %in% names(.tmp)) {
+        .tmp <- .tmp |>
+            dplyr::mutate(
+                `Date of Birth` = lubridate::mdy(.data$`Date of Birth`)
+            )
+    }
+    return(.tmp)
 }

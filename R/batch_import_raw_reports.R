@@ -16,7 +16,7 @@ batch_import_raw_reports <- function(.filenames) {
                 .data$Data,
                 \(.t) dplyr::select(
                     .t,
-                    tidyselect::all_of(names(hercpanorama::DEMOGRAPHIC_FIELDS))
+                    tidyselect::any_of(names(hercpanorama::DEMOGRAPHIC_FIELDS))
                 )
             ),
             Data = purrr::map(

@@ -7,23 +7,24 @@
 import_raw_report(.filename)
 }
 \arguments{
-\item{.filename}{<chr> the full path to the file}
+\item{.filename}{\verb{<chr>} the full path to the file}
 }
 \value{
-a tibble of student-level data.
+an object of class \code{tbl_df}, \code{tbl}, \code{data.frame}
+with at least 10 columns
+\describe{
+\item{\verb{Student Student Number}}{ \verb{<int>} the student's unique ID}
+\item{\verb{Student First Name}}{ \verb{<chr>} the student's given name}
+\item{\verb{Student Last Name}}{ \verb{<chr>} the student's family name}
+\item{\code{Gender}}{ \verb{<chr>} female or male}
+\item{\verb{504 Status}}{ \verb{<chr>} whether or not the student has a personal learning plan}
+\item{\verb{ELL Status}}{ \verb{<chr>} whether or not the student is learning English as an additional language}
+\item{\verb{Grade Level}}{ \verb{<chr>} what grade the student is in.}
+\item{\verb{Date of Birth}}{ \verb{<date>} students' birthdays don't seem to appear in later data sets}
+\item{\verb{Race Ethnicity}}{ \verb{<chr>} one of the OMB '97 race/ethnicites}
+\item{\verb{Special ED Status}}{ \verb{<chr>} whethe or not the student participates in special education services}
+}
 }
 \description{
 The table will have at least 10 columns of demographic and identifying data:
-\itemize{
-\item \verb{Student Student Number} <int>
-\item \verb{Student First Name} <chr>
-\item \verb{Student Last Name} <chr>
-\item \code{Gender} <chr>
-\item \verb{504 Status} <chr>
-\item \verb{ELL Status} <chr>
-\item \verb{Grade Level} <chr>
-\item \verb{Date of Birth} <date>
-\item \verb{Race Ethnicity} <chr>
-\item \verb{Special ED Status} <chr>
-}
 }
